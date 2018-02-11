@@ -6,7 +6,8 @@ RUN apk --no-cache add \
 		openssh-server \
 		tini
 
-RUN sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config
+RUN sed -i s/#PermitRootLogin.*/PermitRootLogin\ without-password/ /etc/ssh/sshd_config \
+ && sed -i s/#PasswordAuthentication.*/PasswordAuthentication\ no/ /etc/ssh/sshd_config
 
 COPY docker-entrypoint.sh /
 

@@ -20,7 +20,7 @@ This will connect the docker container to the internal MYNET network, and you ca
 Let's say we run a PostgreSQL database in the MYNET stack at the hostname mydatabase. We can then access it by a local tunnel via this command:
 
 ```
-ssh -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L localhost:5432:mydatabase:5432 -l root dockercontainerhost.myprovider.com:2222
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L localhost:5432:mydatabase:5432 -l root dockercontainerhost.myprovider.com:2222
 ```
 
 
